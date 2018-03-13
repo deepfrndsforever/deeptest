@@ -1,0 +1,126 @@
+#install docker
+apt-get install docker
+
+#start docker
+systemctl start docker
+
+#extract zip   :  deepfrndsforeverTest.zip
+
+#docker path: /var/www/html/docker-nginx-php-mongo-master
+ 
+
+##run docker    ( /var/www/html/docker-nginx-php-mongo-master)
+ docker-compose up -d
+
+##location of code files
+/var/www/html/docker-nginx-php-mongo-master/web/public
+
+
+
+##to change in urls you can edit             /var/www/html/docker-nginx-php-mongo-master/etc/nginx/default.conf
+
+
+
+###################add recipe##############################
+headers:
+Content-Type: application/json
+Authorization: tyxB6WS4CyrX4TfrdY74uSaaeCCJ58sM
+x-api-key:cMdIgJY7JCmjRUhIyFZSY7weZySNZABy
+
+localhost:8000/recipes   (METHOD POST)
+
+  {
+  "recipeName":"pulao",
+  "preparation": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+  "difficulty": "1",
+  "vegetarian": "true",
+  "preparartionTime": "2 hour",
+  "ingredients":
+  {
+    "key1":"value",
+    "key2":"value",
+    "key3":"value"
+  },
+  "tools":
+  {
+    "tool1":"value",
+    "tool2":"value"
+    
+  },
+  "nutrition":
+  {
+    "key1":"value",
+    "key2":"value"
+    
+  }
+
+  }
+
+  ################### add rating ##############################
+URL:localhost:8000/recipes/r_1520570818/ratings                                  (METHOD POST)
+
+{
+  "deviceId": "121212121212121213",
+  "rating": "3"
+}
+
+
+Note:-
+
+rating should not greater than 5.
+
+  ################### get single recipe ##############################
+URL:localhost:8000/recipes/r_1520570632                                   (METHOD GET)
+
+  ################### remove recipe ##############################
+URL:localhost:8000/recipes/r_1520569330                                   (METHOD DELETE)
+
+headers:
+Content-Type: application/json
+Authorization: tyxB6WS4CyrX4TfrdY74uSaaeCCJ58sM
+x-api-key:cMdIgJY7JCmjRUhIyFZSY7weZySNZABy
+
+  ################### update recipe ##############################
+  headers:
+Content-Type: application/json
+Authorization: tyxB6WS4CyrX4TfrdY74uSaaeCCJ58sM
+x-api-key:cMdIgJY7JCmjRUhIyFZSY7weZySNZABy
+
+URL:    localhost:8000/recipes/r_1520570135                       (METHOD PUT/PATCH)
+
+
+{
+  "recipeName":"pulao",
+  "preparation": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+  "difficulty": "1",
+  "vegetarian": "true",
+  "preparartionTime": "2 hour",
+  "ingredients":
+  {
+    "key1":"value",
+    "key2":"value",
+    "key3":"value"
+  },
+  "tools":
+  {
+    "tool1":"value",
+    "tool2":"value"
+    
+  },
+  "nutrition":
+  {
+    "key1":"value",
+    "key2":"value"
+    
+  }
+
+  }
+
+ ################### get all recipes ##############################
+ URL:   localhost:8000/recipes/1/page                     (METHOD GET)    localhost:8000/recipes/{page no}/page  
+add  1 to url for   first page
+add  2 to url for  second page
+
+
+
+
